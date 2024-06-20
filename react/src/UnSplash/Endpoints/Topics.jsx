@@ -1,62 +1,5 @@
-import React, { useState, useEffect } from 'react';
-
+import './Endpoint.css';
 function Topics() {
-    const [topics, setTopics] = useState(null);
-    const [topic, setTopic] = useState(null);
-
-    // Fetch topics
-    useEffect(() => {
-        const apiEndpoint1 = 'http://localhost:5000/topics';
-
-        const fetchTopics = async () => {
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint1, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.text();
-                setTopics(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchTopics();
-    }, []);
-
-    // Fetch a single topic
-    useEffect(() => {
-        const apiEndpoint2 = 'http://localhost:5000/topic';
-
-        const fetchSingleTopic = async () => {
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint2, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.text();
-                setTopic(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchSingleTopic();
-    }, []);
 
     return (
         <>
@@ -116,7 +59,7 @@ function Topics() {
             </table>
             <p><strong>Response</strong></p>
             <code>200 OK<br />Link: <br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-            <pre>{topics}</pre>
+            
 
             <h4>GET a single topic</h4>
             <code>GET /topics/:id_or_slug</code><br />
@@ -137,7 +80,7 @@ function Topics() {
             </table>
             <p><strong>Response</strong></p>
             <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-            <pre>{topic}</pre>
+            
 
             <h4>GET a topic's photos</h4>
             <code>GET /topics/:id_or_slug/photos</code><br />

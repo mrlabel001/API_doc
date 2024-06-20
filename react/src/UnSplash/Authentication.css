@@ -11,6 +11,7 @@
 .section-title {
     font-size: 20px;
     margin-top: 20px;
+    text-align: left;
 }
 
 .description {
@@ -30,6 +31,12 @@
 .link {
     color: blue;
     text-decoration: none;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    font-family: monospace;
 }
 
 .link:hover {

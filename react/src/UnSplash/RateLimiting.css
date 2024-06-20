@@ -22,3 +22,13 @@
     margin-left: 20px;
 }
 
+code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    font-family: monospace;
+}
+
+h2 {
+    text-align: center;
+}
+

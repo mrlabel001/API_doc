@@ -1,11 +1,7 @@
-/* Overview.css */
 .overview-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: left;
 }
 
 .overview-heading {

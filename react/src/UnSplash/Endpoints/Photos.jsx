@@ -1,204 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
+import './Endpoint.css';
 function Photos() {
-    const [photos, setPhotos] = useState(null);
-    const [photo, setPhoto] = useState(null);
-    const [randomPhoto, setRandomPhoto] = useState(null);
-    const [stats, setStats] = useState(null);
-    const [download, setDownload] = useState(null);
-    const [photoUpdate, setPhotoUpdate] = useState(null);
-    const [like, setLike] = useState(null);
-    const [unlike, setUnlike] = useState(null);
-
-    useEffect(() => {
-        const fetchPhotos = async () => {
-            const apiEndpoint = 'https://api.unsplash.com/photos/';
-            const clientId = 'alzL4jjLBXo5GMEiFtJuCjJoflqNBY0GcrYE_o7Ehhg';
-            try {
-                const response = await fetch(`${apiEndpoint}?client_id=${clientId}`);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setPhotos(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchPhotos();
-    }, []);
-
-    useEffect(() => {
-        const fetchPhoto = async () => {
-            const apiEndpoint = 'http://localhost:5000/photo';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setPhoto(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchPhoto();
-    }, []);
-
-    useEffect(() => {
-        const fetchRandomPhoto = async () => {
-            const apiEndpoint = 'http://localhost:5000/random_photo';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setRandomPhoto(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchRandomPhoto();
-    }, []);
-
-    useEffect(() => {
-        const fetchPhotoStats = async () => {
-            const apiEndpoint = 'http://localhost:5000/stats';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setStats(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchPhotoStats();
-    }, []);
-
-    useEffect(() => {
-        const fetchDownloads = async () => {
-            const apiEndpoint = 'http://localhost:5000/download';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setDownload(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchDownloads();
-    }, []);
-
-    useEffect(() => {
-        const updatePhoto = async () => {
-            const apiEndpoint = 'http://localhost:5000/photo_update';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setPhotoUpdate(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        updatePhoto();
-    }, []);
-
-    useEffect(() => {
-        const likePhoto = async () => {
-            const apiEndpoint = 'http://localhost:5000/like';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    method: 'POST',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setLike(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        likePhoto();
-    }, []);
-
-    useEffect(() => {
-        const unlikePhoto = async () => {
-            const apiEndpoint = 'http://localhost:5000/unlike';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    method: 'DELETE',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                setUnlike(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        unlikePhoto();
-    }, []);
-
+ 
     return (
         <>
             <h3>Photos</h3>
@@ -253,7 +55,7 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(photos, null, 2)}</pre>
+    
 
             {/* GET a single photo */}
             <h4>GET a single photo</h4>
@@ -274,7 +76,7 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(photo, null, 2)}</pre>
+
 
             {/* GET a random photo */}
             <h4>GET a random photo</h4>
@@ -303,7 +105,7 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(randomPhoto, null, 2)}</pre>
+           
 
             {/* GET photo statistics */}
             <h4>GET photo statistics</h4>
@@ -324,7 +126,7 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(stats, null, 2)}</pre>
+
 
             {/* GET a photo's download link */}
             <h4>GET a photo's download link</h4>
@@ -345,7 +147,7 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(download, null, 2)}</pre>
+            
 
             {/* Update a photo */}
             <h4>Update a photo</h4>
@@ -370,8 +172,6 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(photoUpdate, null, 2)}</pre>
-
             {/* Like a photo */}
             <h4>Like a photo</h4>
             <code>POST /photos/:id/like</code><br />
@@ -391,7 +191,6 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(like, null, 2)}</pre>
 
             {/* Unlike a photo */}
             <h4>Unlike a photo</h4>
@@ -412,7 +211,7 @@ function Photos() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <pre>{JSON.stringify(unlike, null, 2)}</pre>
+    
         </>
     );
 }

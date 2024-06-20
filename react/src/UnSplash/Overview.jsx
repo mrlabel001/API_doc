@@ -17,7 +17,8 @@ function Overview() {
             <h4 className="section-subtitle">Getting Started</h4>
             <p className="description">
                 To access and utilize the Unsplash API, you'll first need to <a href="#" className="link">register</a> if you do not have a pre-existing account or <a href="#" className="link">login</a> if you already have an account. Once you're in, visit <a href="#" className="link">your apps</a>. Then click on "New application" and fill in the required fields to get started.<br />
-                To start, your application operates in demo mode, capped at 50 requests per hour—ideal for testing, educational use, and demo apps. Transition to production mode by following the "Apply for Production" guidelines. Upon approval, your rate limit will be raised to its full capacity. Applications have specific <a href="#" className="link">guidelines</a> which include <a href="#" className="link">properly providing attribution for the photographer and Unsplash</a>.
+                To start, your application operates in demo mode, capped at 50 requests per hour—ideal for testing, educational use, and demo apps. Transition to production mode by following the "Apply for Production" guidelines. Upon approval, your rate limit will be raised to its full capacity. Applications have specific <a href="#" className="link">guidelines</a> which include <a href="#" className="link">properly providing attribution for the photographer and Unsplash</a>. 
+                All applications must follow the <a href="#" className="link">API Guidelines</a> or contact the official <a href="#" className="link">API team.</a>
             </p>
             <br />
             <h4 className="section-subtitle">Libraries and SDKs</h4>
@@ -67,10 +68,10 @@ function Overview() {
             </ol>
             <br />
             <h3 className="section-title">Version</h3>
-            <p className="description">All requests receive the v1 version of the API. We encourage you to specifically request this via the Accept-Version header.</p>
+            <p className="description">All requests receive the <code>v1 version</code> of the API. We encourage you to specifically request this via the Accept-Version header.</p>
             <br />
             <h3 className="section-title">Base URL</h3>
-            <p className="description">The API is available at <a href="https://api.unsplash.com/" className="link">https://api.unsplash.com/</a>. Responses are sent as JSON.</p>
+            <p className="description">The API is available at <code>https://api.unsplash.com/</code>. Responses are sent as JSON.</p>
             <br />
         </div>
     );

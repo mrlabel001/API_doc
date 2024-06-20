@@ -20,17 +20,17 @@ function RateLimiting() {
             <h3>Monitoring Rate Limit Success</h3>
             <p>Each API response includes headers to include the current rate limit status:</p>
             <ul>
-                <li>X-Ratelimit-Limit: Total allowed requests per hour.</li>
-                <li>X-Ratelimit-Remaining: Remaining requests for the current hour.</li>
+                <li><code>X-Ratelimit-Limit: </code>Total allowed requests per hour.</li>
+                <li><code>X-Ratelimit-Remaining: </code>Remaining requests for the current hour.</li>
             </ul>
             <p>Example:</p>
             <ul>
-                <li>X-Ratelimit-Limit: 1000</li>
-                <li>X-Ratelimit-Limit: 999</li>
+                <li><code>X-Ratelimit-Limit: 1000</code></li>
+                <li><code>X-Ratelimit-Limit: 999</code></li>
             </ul>
             
             <h3>Important Details</h3>
-            <p>Note that only JSON requests (those to <a href="https://api.unsplash.com">api.unsplash.com</a>) are counted. Image file requests (<a href="https://images.unsplash.com">images.unsplash.com</a>) do not count against your rate limit. If you think you'll need a higher rate limit, <a href="#">contact us.</a></p>
+            <p>Note that only JSON requests (those to <code>api.unsplash.com</code>) are counted. Image file requests (<code>images.unsplash.com</code>) do not count against your rate limit. If you think you'll need a higher rate limit, <a href="#">contact us.</a></p>
             <p>When retrieving a list of objects, an abbreviated or summary version of that object is returned. To get a full version of that object, fetch it individually.</p>
             
             <h3>HTTP Verbs</h3>
@@ -44,10 +44,10 @@ function RateLimiting() {
             <h3>Pagination</h3>
             <p>Requests that return multiple items like a list of photos will be paginated, showing only 10 images per page by default, with a maximum limit of 30 items per page. The <a href="#">page</a> and <a href="#">per-page</a> query parameters can be optionally provided to specify the desired page number and number of items per page.</p>
             <ul>
-                <li>If <a href="#">page</a> is not specified, the first page is returned by default.</li>
-                <li>If <a href="#">per-page</a> is not specified, the default number of items per page will be 10.</li>
+                <li>If <code>page</code> is not specified, the first page is returned by default.</li>
+                <li>If <code>per-page</code> is not specified, the default number of items per page will be 10.</li>
             </ul>
-            <p>More information on pagination is returned in the response headers. The <a href="#">X-per-page</a> and <a href="#">X-total</a> headers give the number of elements returned on each page and the total number of elements returned respectively. URLs for the first, last, next, and previous pages are supplied if applicable. They are separated by a comma and differentiated with a <a href="#">rel</a> attribute.</p>
+            <p>More information on pagination is returned in the response headers. The <code>X-per-page</code> and <code>X-total</code> headers give the number of elements returned on each page and the total number of elements returned respectively. URLs for the first, last, next, and previous pages are supplied if applicable. They are separated by a comma and differentiated with a <code>rel</code> attribute.</p>
             
             <h3>Dynamically resizable images</h3>
             <p>Every image returned by the UnSplash API is a dynamic image URL, which means it can be manipulated to create new transformations of the image by simply adjusting the query parameters of the image URL. This enables resizing, cropping, compression, and changing the format of the image in real time on the client's side, without any API calls. Under the hood, UnSplash uses Imgx, a powerful image manipulation service, to provide dynamic image URLs.</p>
@@ -63,16 +63,7 @@ function RateLimiting() {
                 <li><code>fit:</code> Change the fit of the image within the specified dimensions. Options include crop, clip, max, min, and scale. Example: </li>
                 <li><code>dpr:</code> Adjust the device pixel ratio of the image. Example: </li>
             </ul>
-            <p>Other parameters offered by Imgx can be used, but UnSplash does not officially support them and may remove support for them at any time in the future. Below are some practical examples of how to apply the above transformations.</p>
-            <a href="#">example 1</a><br />
-            <a href="#">example 2</a><br />
-            <a href="#">example 3</a><br />
-            <a href="#">example 4</a><br />
-            <a href="#">example 5</a><br />
-            <a href="#">example 6</a><br />
-            <a href="#">example 7</a><br />
-            
-            <p>When making a request via the <a href="#">/photos</a> endpoint, you'll retrieve a list of images. For each photo object returned, image URLs are provided under the URLs attribute: <a href="#">example</a></p>
+            <p>When making a request via the <code>/photos</code> endpoint, you'll retrieve a list of images. For each photo object returned, image URLs are provided under the URLs attribute: </p>
             <ul>
                 <li><h5>full:</h5> Photo in jpg with maximum dimensions. Not recommended for performance reasons as it loads slowly.</li>
                 <li><h5>regular:</h5> Photo in jpg format with a width of 1080 pixels.</li>
@@ -80,18 +71,14 @@ function RateLimiting() {
                 <li><h5>thumb:</h5> Photo in jpg format with a width of 200 pixels.</li>
                 <li><h5>raw:</h5> Base image URL with just the photo path and the ixid parameter for your API application. Use this to easily add additional image parameters.</li>
             </ul>
-            
-            <h4>Customizing Image URLs</h4>
-            <p>To customize image dimensions, add query parameters to the raw URL: Example 1: Create an image URL with a width of 1500px and a device pixel ratio (DPR) of 2: <a href="#">example</a><br /> Example 2: Create an image URL with a width of 750px without hitting the API again: <a href="#">example</a><br /> For additional details or queries on image manipulation parameters, refer to the <a href="#">Imgx docs.</a></p>
-            
             <h4>Content filtering</h4>
-            <p>By default, endpoints set the <a href="#">content filter</a> to <a href="#">low</a>, ensuring that no content violating our submission guidelines (e.g., images containing nudity or violence) is returned. For additional flexibility, you can set the <a href="#">content filter</a> to <a href="#">high</a> on supported endpoints. This further removes content that may be unsuitable for younger audiences. However, please note that UnSplash cannot guarantee the removal of all potentially unsuitable content.</p>
+            <p>By default, endpoints set the <code>content filter</code> to <code>low</code>, ensuring that no content violating our submission <a href="#">guidelines</a> (e.g., images containing nudity or violence) is returned. For additional flexibility, you can set the <code>content filter</code> to <code>high</code> on supported endpoints. This further removes content that may be unsuitable for younger audiences. However, please note that UnSplash cannot guarantee the removal of all potentially unsuitable content.</p>
             
             <h4>BlurHash Placeholders</h4>
-            <p>Photos retrieved from the UnSplash API include a compact representation of an image placeholder (<a href="#">blur_hash string</a>) which can be used to display a blurred preview before the real image loads. You can learn more on how to implement <a href="#">blurHash</a> in your application on its <a href="#">official page.</a></p>
+            <p>Photos retrieved from the UnSplash API include a compact representation of an image placeholder (<code>blur_hash string</code>) which can be used to display a blurred preview before the real image loads. You can learn more on how to implement <a href="#">blurHash</a> in your application on its <a href="#">official page.</a></p>
             
             <h4>Supported Languages</h4>
-            <p>UnSplash is currently testing support for non-English languages on <a href="#">search endpoints.</a> To access the beta, email <a href="mailto:api@unsplash.com">api@unsplash.com</a> with your application ID.<br /><a href="#">table of languages</a></p>
+            <p>UnSplash is currently testing support for non-English languages on <a href="#">search endpoints.</a> To access the beta, email <a href="mailto:api@unsplash.com">api@unsplash.com</a> with your application ID.</p>
             <br />
         </div>
     )

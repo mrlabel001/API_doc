@@ -1,88 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
+import './Endpoint.css';
 function Search() {
-    const [photos, setPhotos] = useState(null);
-    const [collection, setCollection] = useState(null);
-    const [users, setUsers] = useState(null);
-
-    // Fetch photos
-    useEffect(() => {
-        const fetchPhotos = async () => {
-            const apiEndpoint = 'http://localhost:5000/photos';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.text();
-                setPhotos(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchPhotos();
-    }, []);
-
-    // Fetch collections
-    useEffect(() => {
-        const fetchCollections = async () => {
-            const apiEndpoint = 'http://localhost:5000/collection';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.text();
-                setCollection(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchCollections();
-    }, []);
-
-    // Fetch users
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const apiEndpoint = 'http://localhost:5000/pending_users';
-            const token = 'YOUR_TOKEN_HERE'; // Replace with your actual token
-            try {
-                const response = await fetch(apiEndpoint, {
-                    method: 'GET',
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.text();
-                setUsers(data);
-            } catch (error) {
-                console.error('Fetch error:', error);
-            }
-        };
-
-        fetchUsers();
-    }, []);
-
+    
     return (
         <>
             <h3>Search</h3>
@@ -132,7 +50,7 @@ function Search() {
             </table>
             <p><strong>Response</strong></p>
             <code>200 OK</code>
-            <pre>{photos}</pre>
+        
 
             <h4>Search for collections</h4>
             <code>GET /search/collections</code>
@@ -160,8 +78,6 @@ function Search() {
             </table>
             <p><strong>Response</strong></p>
             <code>200 OK</code>
-            <pre>{collection}</pre>
-
             <h4>Search for users</h4>
             <code>GET /search/users</code>
             <table>
@@ -188,7 +104,7 @@ function Search() {
             </table>
             <p><strong>Response</strong></p>
             <code>200 OK</code>
-            <pre>{users}</pre>
+    
         </>
     );
 }
