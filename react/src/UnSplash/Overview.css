@@ -1,0 +1,47 @@
+.overview {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: left;
+}
+
+.overview-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.description-list, .sdk-list, .entrepreneurs-list, .developers-list {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.description-item, .sdk-item, .entrepreneurs-item, .developers-item {
+    margin-bottom: 5px;
+}
+
+.sub-item-title {
+    font-weight: bold;
+}
+
+.link {
+    color: blue;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

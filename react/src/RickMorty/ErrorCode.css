@@ -1,0 +1,30 @@
+.error-code-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .error-description {
+    margin-bottom: 10px;
+  }
+  
+  .error-sample {
+    color: #007bff;
+  }
+  
+  .http-codes-description {
+    font-weight: bold;
+  }
+  
+  .http-codes-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .http-code-item {
+    margin-bottom: 8px;
+  }
+  
+  .http-code {
+    font-weight: bold;
+    margin-right: 5px;
+  }

@@ -1,0 +1,33 @@
+.error-code {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: left;
+}
+
+.error-code-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.error-code-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.error-code-link {
+    color: blue;
+    text-decoration: none;
+}
+
+.error-code-link:hover {
+    text-decoration: underline;
+}
+
+.error-code-list {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.error-code-item {
+    margin-bottom: 5px;
+}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import './Endpoint.css';
 import CurrentUser from './CurrentUser';
 import Users from './Users';
 import Photos from './Photos';
@@ -9,7 +9,7 @@ import Stats from './Stats';
 
 function Endpoints () {
   return (
-    <>
+    <div className='endpoint_div'>
         <CurrentUser />
         <Users />
         <Photos />
@@ -17,7 +17,7 @@ function Endpoints () {
         <Collections />
         <Topics />
         <Stats />
-    </>
+    </div>
   )
 }
 

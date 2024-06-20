@@ -49,7 +49,7 @@ function Episode () {
                 <h3>GET all episodes</h3>
                     <p><code>/episodes</code> endpoint can be used to access all episodes.</p>
                 <h3>GET a single episode</h3>
-                    <p><code>/episode/{id}</code> endpoint can be used to access a single and specific episode</p>
+                    <p><code>/episode/id</code> endpoint can be used to access a single and specific episode</p>
                 <h3>GET multiple episodes</h3>
                     <p><code>/episodes/[1,2,3] or /episodes/1,2,3</code> can be used to access multiple episodes</p>
                 <h3>Filter episodes</h3>

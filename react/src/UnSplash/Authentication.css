@@ -1,0 +1,37 @@
+.authentication {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.authentication-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.description-list {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.description-item {
+    margin-bottom: 5px;
+}
+
+.link {
+    color: blue;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

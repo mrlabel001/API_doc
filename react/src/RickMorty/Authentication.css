@@ -1,0 +1,9 @@
+.authentication-container {
+    margin: 20px;
+    text-align: left;
+  }
+  
+  .authentication-description {
+    line-height: 1.6;
+    font-size: 16px;
+  }

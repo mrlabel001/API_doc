@@ -1,0 +1,24 @@
+.rate-limiting {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    text-align: left;
+}
+
+.rate-limiting h2 {
+    color: #333;
+}
+
+.rate-limiting h3 {
+    color: #444;
+}
+
+.rate-limiting p {
+    margin: 10px 0;
+}
+
+.rate-limiting ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+

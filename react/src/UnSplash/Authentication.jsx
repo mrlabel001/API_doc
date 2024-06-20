@@ -1,29 +1,43 @@
-function Authentication () {
+import React from 'react';
+import './Authentication.css';
+
+function Authentication() {
     return (
-        <>
-            <h2>Authentication</h2>
-            <h3>Public authentication</h3>
-                <p>Most actions, such as searching, fetching, or downloading a photo can be perfomed without requiring authentication from a specific use. To authenicate requests in this manner, you can pass your application's access key via the HTTP Authorization header or as a client_id query parameter:</p>
-                <ul>
-                    <li><strong>HTTP Authorization header: </strong> 
-                    <a>Authoriization</a></li>
-                    <li><strong>Query parameter: </strong>
-                    <a>Parameters</a></li>
-                </ul>
-                <p>This from of authentication is widely used by most UnSplash API applications as it does not necessitate user login or joining. 
-                    Additionally, its genearlly cacheable bu our system, resulting in faster response times. Howevwe, attemting to perform non-public actions that require user authorization with only the access key will result in a 401 Unauthorized response.</p><br></br>
-            <h3>User Authentication</h3>
-                <p>For API applications requiring customized response per user (e.g., checking if they have liked a photo, fetchong their private collections) or actions on behalf of the users, user's authentication workflow is necessary. This involves creating individual user bearer tokens for authentication.
-                    For detailed guidance, refer to the <a>user authentication workflow documentation.</a>
-                </p><br></br>
-            <h3>Dynamic Client Registartion</h3>
-                <p>
-                    We support a special authorization flow following the OAuth dynamic client registartion protocol. This This grants individual API keys to each user through a user friendly sign up process.
-                    This approach, or the use of a proxy, is required for decentralized applications such as WordPress or Ghost, where a single API key cannot be shared across all installations.
-                    For detailed guidance refer to the <a>dynamic client registartion documentation.</a>
-                </p><br></br>
-        </>
-    )
+        <div className="authentication">
+            <h2 className="authentication-title">Authentication</h2>
+            <h3 className="section-title">Public Authentication</h3>
+            <p className="description">
+                Most actions, such as searching, fetching, or downloading a photo, can be performed without requiring authentication from a specific user. To authenticate requests in this manner, you can pass your application's access key via the HTTP Authorization header or as a client_id query parameter:
+            </p>
+            <ul className="description-list">
+                <li className="description-item">
+                    <strong>HTTP Authorization header: </strong>
+                    <a href="#" className="link">Authorization</a>
+                </li>
+                <li className="description-item">
+                    <strong>Query parameter: </strong>
+                    <a href="#" className="link">Parameters</a>
+                </li>
+            </ul>
+            <p className="description">
+                This form of authentication is widely used by most Unsplash API applications as it does not necessitate user login or joining. Additionally, it's generally cacheable by our system, resulting in faster response times. However, attempting to perform non-public actions that require user authorization with only the access key will result in a 401 Unauthorized response.
+            </p>
+            <br />
+            <h3 className="section-title">User Authentication</h3>
+            <p className="description">
+                For API applications requiring customized responses per user (e.g., checking if they have liked a photo, fetching their private collections) or actions on behalf of the users, a user's authentication workflow is necessary. This involves creating individual user bearer tokens for authentication.
+                For detailed guidance, refer to the <a href="#" className="link">user authentication workflow documentation.</a>
+            </p>
+            <br />
+            <h3 className="section-title">Dynamic Client Registration</h3>
+            <p className="description">
+                We support a special authorization flow following the OAuth dynamic client registration protocol. This grants individual API keys to each user through a user-friendly sign-up process.
+                This approach, or the use of a proxy, is required for decentralized applications such as WordPress or Ghost, where a single API key cannot be shared across all installations.
+                For detailed guidance, refer to the <a href="#" className="link">dynamic client registration documentation.</a>
+            </p>
+            <br />
+        </div>
+    );
 }
 
 export default Authentication;

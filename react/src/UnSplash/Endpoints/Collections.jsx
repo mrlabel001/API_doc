@@ -1,252 +1,81 @@
 import React, { useState, useEffect } from 'react';
-function Collections () {
 
-    const [collections, setCollections] = useState(null)
-    const [collection, setCollection] = useState(null)
-    const [photos, setPhotos] = useState(null)
-    const [relatedCollections, setRelatedCollections] = useState(null)
-    const [createCollection, setCreateCollection] = useState(null)
-    const [updateCollection, setUpdateCollection] = useState(null)
-    const [deleteCollection, setDeleteCollection] = useState(null)
-    const [addPhoto, setAddPhoto] = useState(null)
-    const [deletePhoto, setDeletePhoto] = useState(null)
+function Collections() {
+  const [collections, setCollections] = useState(null);
+  const [collection, setCollection] = useState(null);
+  const [photos, setPhotos] = useState(null);
+  const [relatedCollections, setRelatedCollections] = useState(null);
+  const [createCollection, setCreateCollection] = useState(null);
+  const [updateCollection, setUpdateCollection] = useState(null);
+  const [deleteCollection, setDeleteCollection] = useState(null);
+  const [addPhoto, setAddPhoto] = useState(null);
+  const [deletePhoto, setDeletePhoto] = useState(null);
 
-    //function to get collections
-    useEffect(() => {
-        // Define the API endpoint
-        const apiEndpoint1 = 'http://localhost:5000/users';
-    
-        // Fetch data from the API
-        const fetchCollections = async () => {
-          try {
-            const response = await fetch(apiEndpoint1, {
-              method: 'GET', // Specify the method
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', // Adjust Content-Type if necessary
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData1 = await response.text();
-            setCollections(textData1); // Set the fetched text data in the state
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        fetchCollections(); // Call the fetchData function
-      }, []);
+  const fetchApiData = async (apiEndpoint, setStateCallback) => {
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer your_jwt_token_here`,
+          'Content-Type': 'application/json',
+        },
+      });
 
-      //function to get a single collection
-    useEffect(() => {
-        const apiEndpoint2 = 'http://localhost:5000/pending_users';
-        const fetchCollection = async () => {
-          try {
-            const response = await fetch(apiEndpoint2, {
-              method: 'GET', 
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', 
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData2 = await response.text();
-            setCollection(textData2); 
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        fetchCollection(); 
-      }, []);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-      //function to get a collection's photos
-    useEffect(() => {
-        const apiEndpoint3 = 'http://localhost:5000/pending_users';
-        const fetchCollectionPhotos = async () => {
-          try {
-            const response = await fetch(apiEndpoint3, {
-              method: 'GET', 
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', 
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData3 = await response.text();
-            setPhotos(textData3); 
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        fetchCollectionPhotos(); 
-      }, []);
+      const textData = await response.text();
+      setStateCallback(textData);
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
+  };
 
-      //function to get a collection's related collections
-    useEffect(() => {
-        const apiEndpoint4 = 'http://localhost:5000/pending_users';
-        const fetchRelatedCollection = async () => {
-          try {
-            const response = await fetch(apiEndpoint4, {
-              method: 'GET', 
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', 
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData4 = await response.text();
-            setRelatedCollections(textData4); 
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        fetchRelatedCollection(); 
-      }, []);
+  useEffect(() => {
+    const apiEndpoint1 = 'http://localhost:5000/collections';
+    fetchApiData(apiEndpoint1, setCollections);
+  }, []);
 
-      //function to create collecion
-    useEffect(() => {
-        const apiEndpoint5 = 'http://localhost:5000/pending_users';
-        const createCollection = async () => {
-          try {
-            const response = await fetch(apiEndpoint5, {
-              method: 'GET', 
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', 
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData5 = await response.text();
-            setCreateCollection(textData5); 
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        createCollection(); 
-      }, []);
+  useEffect(() => {
+    const apiEndpoint2 = 'http://localhost:5000/collection';
+    fetchApiData(apiEndpoint2, setCollection);
+  }, []);
 
-      //function to update collecion
-    useEffect(() => {
-        const apiEndpoint6 = 'http://localhost:5000/pending_users';
-        const updateCollection = async () => {
-          try {
-            const response = await fetch(apiEndpoint6, {
-              method: 'GET', 
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', 
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData6 = await response.text();
-            setUpdateCollection(textData6); 
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        updateCollection(); 
-      }, []);
+  useEffect(() => {
+    const apiEndpoint3 = 'http://localhost:5000/photos';
+    fetchApiData(apiEndpoint3, setPhotos);
+  }, []);
 
-      //function to delete collecion
-    useEffect(() => {
-        const apiEndpoint7 = 'http://localhost:5000/pending_users';
-        const deleteCollection = async () => {
-          try {
-            const response = await fetch(apiEndpoint7, {
-              method: 'GET', 
-              headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-                'Content-Type': 'application/json', 
-              },
-            });
-    
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            const textData7 = await response.text();
-            setDeleteCollection(textData7); 
-          } catch (error) {
-            console.error('Fetch error:', error);
-          }
-        };
-    
-        deleteCollection(); 
-      }, []);
+  useEffect(() => {
+    const apiEndpoint4 = 'http://localhost:5000/related_collections';
+    fetchApiData(apiEndpoint4, setRelatedCollections);
+  }, []);
 
-      //function to add photo to a collection
-    useEffect(() => {
-      const apiEndpoint8 = 'http://localhost:5000/pending_users';
-      const addPhoto = async () => {
-        try {
-          const response = await fetch(apiEndpoint8, {
-            method: 'GET', 
-            headers: {
-              Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-              'Content-Type': 'application/json', 
-            },
-          });
-  
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const textData8 = await response.text();
-          setAddPhoto(textData8); 
-        } catch (error) {
-          console.error('Fetch error:', error);
-        }
-      };
-  
-      addPhoto(); 
-    }, []);
+  useEffect(() => {
+    const apiEndpoint5 = 'http://localhost:5000/create_collection';
+    fetchApiData(apiEndpoint5, setCreateCollection);
+  }, []);
 
-    //function to delete photo from a collection
-    useEffect(() => {
-      const apiEndpoint9 = 'http://localhost:5000/pending_users';
-      const deletePhoto = async () => {
-        try {
-          const response = await fetch(apiEndpoint9, {
-            method: 'GET', 
-            headers: {
-              Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcxODc0Mjk5MywianRpIjoiNzU5MDRhY2MtMmU1OC00OTE1LTljM2UtOGVjZWI2MGFlNDg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzE4NzQyOTkzLCJjc3JmIjoiOWZiYzI0Y2EtOWY3Zi00YTk3LWI5MjItZDYxOWFmMjY5Nzc5IiwiZXhwIjoxNzE4NzUwMTkzLCJhZG1pbiI6dHJ1ZX0.vexUOCsFkZ6WwXTL9EjlD1PWpwo8Ki0yZRUbqPi2Z24`,
-              'Content-Type': 'application/json', 
-            },
-          });
-  
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const textData9 = await response.text();
-          setDeletePhoto(textData9); 
-        } catch (error) {
-          console.error('Fetch error:', error);
-        }
-      };
-  
-      deletePhoto(); 
-    }, []);
+  useEffect(() => {
+    const apiEndpoint6 = 'http://localhost:5000/update_collection';
+    fetchApiData(apiEndpoint6, setUpdateCollection);
+  }, []);
+
+  useEffect(() => {
+    const apiEndpoint7 = 'http://localhost:5000/delete_collection';
+    fetchApiData(apiEndpoint7, setDeleteCollection);
+  }, []);
+
+  useEffect(() => {
+    const apiEndpoint8 = 'http://localhost:5000/add_photo';
+    fetchApiData(apiEndpoint8, setAddPhoto);
+  }, []);
+
+  useEffect(() => {
+    const apiEndpoint9 = 'http://localhost:5000/delete_photo';
+    fetchApiData(apiEndpoint9, setDeletePhoto);
+  }, []);
 
     return (
         <>

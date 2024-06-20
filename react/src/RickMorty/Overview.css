@@ -1,0 +1,42 @@
+/* Overview.css */
+.overview-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.overview-heading {
+    color: #333;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section-heading {
+    color: #555;
+    font-size: 1.2em;
+}
+
+.section-content {
+    line-height: 1.6;
+}
+
+.base-url-section {
+    margin-top: 10px;
+}
+
+.base-url-section strong {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.base-url-section code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    font-family: monospace;
+}
