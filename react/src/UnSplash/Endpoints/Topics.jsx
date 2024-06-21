@@ -1,4 +1,8 @@
 import './Endpoint.css';
+import pic29 from "./assets/get topics.png"
+import pic30 from "./assets/get a topic.png"
+import pic31 from "./assets/get a topic photos.png"
+
 function Topics() {
 
     return (
@@ -27,7 +31,7 @@ function Topics() {
                     </tr>
                 </tbody>
             </table>
-
+            <br />
             <h4>GET topics</h4>
             <code>GET /topics</code><br />
             <strong>Parameters</strong>
@@ -58,9 +62,9 @@ function Topics() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <code>200 OK<br />Link: <br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-            
-
+            <code>200 OK<br />Link: <br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic29} ></img>
+            <br />
             <h4>GET a single topic</h4>
             <code>GET /topics/:id_or_slug</code><br />
             <strong>Parameters</strong>
@@ -79,9 +83,9 @@ function Topics() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-            
-
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic30} ></img>
+            <br />
             <h4>GET a topic's photos</h4>
             <code>GET /topics/:id_or_slug/photos</code><br />
             <strong>Parameters</strong>
@@ -116,7 +120,9 @@ function Topics() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <code>200 OK<br />Link: <br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
+            <code>200 OK<br />Link: <br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic31} ></img>
+            <br />
         </>
     );
 }

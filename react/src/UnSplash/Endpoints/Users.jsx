@@ -1,4 +1,12 @@
 import './Endpoint.css';
+import pic3 from "./assets/get user public profile.png"
+import pic4 from "./assets/get user portfolio link.png"
+import pic5 from "./assets/get user photos.png"
+import pic6 from "./assets/get user liked photos.png"
+import pic7 from "./assets/get user collections.png"
+import pic8 from "./assets/get user statistics.png"
+
+
 function Users() {
 
     return (
@@ -37,7 +45,7 @@ function Users() {
                     </tr>
                 </tbody>
             </table>
-
+            <br />
             <h4>GET user's public profile</h4>
             <code>GET /users/:username</code><br />
             <strong>Parameters</strong>
@@ -55,9 +63,9 @@ function Users() {
             </table>
             <p><strong>Response</strong></p>
             <p>This response will only display data that is publicly available information. To get private details, use <code>GET /me</code> as demonstrated above.</p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-    
-
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic3} ></img>
+            <br />
             <h4>GET user's portfolio link</h4>
             <code>GET /users/:username/portfolio</code><br />
             <strong>Parameters</strong>
@@ -75,9 +83,9 @@ function Users() {
             </table>
             <p><strong>Response</strong></p>
             <p>This response will only display data that is publicly available information. To get private details, use <code>GET /me</code> as demonstrated above.</p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-            
-
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic4} ></img>
+            <br />
             <h4>GET user's photos</h4>
             <code>GET /users/:username/photos</code><br />
             <strong>Parameters</strong>
@@ -123,9 +131,9 @@ function Users() {
             </table>
             <p><strong>Response</strong></p>
             <p>The photo object returned is abbreviated. To get full details, use <code>GET /photos/:id</code>.</p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-
-
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic5} ></img>
+            <br />
             <h4>GET user's liked photos</h4>
             <code>GET /users/:username/likes</code><br />
             <strong>Parameters</strong>
@@ -159,8 +167,9 @@ function Users() {
             </table>
             <p><strong>Response</strong></p>
             <p>The photo object returned is abbreviated. To get full details, use <code>GET /photos/:id</code>.</p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic6} ></img>
+            <br />
             <h4>GET user's collections</h4>
             <code>GET /users/:username/collections</code><br />
             <strong>Parameters</strong>
@@ -190,9 +199,9 @@ function Users() {
             </table>
             <p><strong>Response</strong></p>
             <p>The collections object returned is abbreviated. To get full details, use <code>GET /collections/:id</code>.</p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
-         
-
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic7} ></img>
+            <br />
             <h4>GET user's statistics</h4>
             <code>GET /users/:username/stats</code><br />
             <strong>Parameters</strong>
@@ -210,7 +219,9 @@ function Users() {
             </table>
             <p><strong>Response</strong></p>
             <p>The statistics object returned is abbreviated. To get full details, use <code>GET /users/:username</code>.</p>
-            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code>
+            <code>200 OK<br />X-Ratelimit-Limit: 1000<br />X-Ratelimit-Remaining: 999</code><br />
+            <img src={pic8} ></img>
+            <br />
         </>
     );
 }

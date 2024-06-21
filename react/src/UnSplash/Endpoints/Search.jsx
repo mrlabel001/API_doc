@@ -1,4 +1,8 @@
 import './Endpoint.css';
+import pic17 from "./assets/search photos.png"
+import pic18 from "./assets/search collection.png"
+import pic19 from "./assets/search users.png"
+
 function Search() {
     
     return (
@@ -49,9 +53,9 @@ function Search() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <code>200 OK</code>
-        
-
+            <code>200 OK</code><br />
+            <img src={pic17} ></img>
+            <br />
             <h4>Search for collections</h4>
             <code>GET /search/collections</code>
             <table>
@@ -77,7 +81,9 @@ function Search() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <code>200 OK</code>
+            <code>200 OK</code><br />
+            <img src={pic18} ></img>
+            <br />
             <h4>Search for users</h4>
             <code>GET /search/users</code>
             <table>
@@ -103,8 +109,9 @@ function Search() {
                 </tbody>
             </table>
             <p><strong>Response</strong></p>
-            <code>200 OK</code>
-    
+            <code>200 OK</code><br />
+            <img src={pic19} ></img>
+            <br />
         </>
     );
 }

@@ -1,6 +1,7 @@
 .error-code-container {
     margin: 20px;
     font-family: Arial, sans-serif;
+    text-align: left;
   }
   
   .error-description {
@@ -28,3 +29,16 @@
     font-weight: bold;
     margin-right: 5px;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}

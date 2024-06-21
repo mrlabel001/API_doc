@@ -30,7 +30,7 @@ function RateLimiting() {
             </ul>
             
             <h3>Important Details</h3>
-            <p>Note that only JSON requests (those to <code>api.unsplash.com</code>) are counted. Image file requests (<code>images.unsplash.com</code>) do not count against your rate limit. If you think you'll need a higher rate limit, <a href="#">contact us.</a></p>
+            <p>Note that only JSON requests (those to <code>api.unsplash.com</code>) are counted. Image file requests (<code>images.unsplash.com</code>) do not count against your rate limit. If you think you'll need a higher rate limit, <a href="https://help.unsplash.com/en/articles/3887917-when-should-i-apply-for-a-higher-rate-limit">contact us.</a></p>
             <p>When retrieving a list of objects, an abbreviated or summary version of that object is returned. To get a full version of that object, fetch it individually.</p>
             
             <h3>HTTP Verbs</h3>
@@ -42,7 +42,7 @@ function RateLimiting() {
             </ul>
             
             <h3>Pagination</h3>
-            <p>Requests that return multiple items like a list of photos will be paginated, showing only 10 images per page by default, with a maximum limit of 30 items per page. The <a href="#">page</a> and <a href="#">per-page</a> query parameters can be optionally provided to specify the desired page number and number of items per page.</p>
+            <p>Requests that return multiple items like a list of photos will be paginated, showing only 10 images per page by default, with a maximum limit of 30 items per page. The <code>page</code> and <code>per-page</code> query parameters can be optionally provided to specify the desired page number and number of items per page.</p>
             <ul>
                 <li>If <code>page</code> is not specified, the first page is returned by default.</li>
                 <li>If <code>per-page</code> is not specified, the default number of items per page will be 10.</li>
@@ -72,13 +72,13 @@ function RateLimiting() {
                 <li><h5>raw:</h5> Base image URL with just the photo path and the ixid parameter for your API application. Use this to easily add additional image parameters.</li>
             </ul>
             <h4>Content filtering</h4>
-            <p>By default, endpoints set the <code>content filter</code> to <code>low</code>, ensuring that no content violating our submission <a href="#">guidelines</a> (e.g., images containing nudity or violence) is returned. For additional flexibility, you can set the <code>content filter</code> to <code>high</code> on supported endpoints. This further removes content that may be unsuitable for younger audiences. However, please note that UnSplash cannot guarantee the removal of all potentially unsuitable content.</p>
+            <p>By default, endpoints set the <code>content filter</code> to <code>low</code>, ensuring that no content violating our submission <a href="https://help.unsplash.com/en/articles/2534415-submission-guidelines">guidelines</a> (e.g., images containing nudity or violence) is returned. For additional flexibility, you can set the <code>content filter</code> to <code>high</code> on supported endpoints. This further removes content that may be unsuitable for younger audiences. However, please note that UnSplash cannot guarantee the removal of all potentially unsuitable content.</p>
             
             <h4>BlurHash Placeholders</h4>
-            <p>Photos retrieved from the UnSplash API include a compact representation of an image placeholder (<code>blur_hash string</code>) which can be used to display a blurred preview before the real image loads. You can learn more on how to implement <a href="#">blurHash</a> in your application on its <a href="#">official page.</a></p>
+            <p>Photos retrieved from the UnSplash API include a compact representation of an image placeholder (<code>blur_hash string</code>) which can be used to display a blurred preview before the real image loads. You can learn more on how to implement <a href="https://blurha.sh/">blurHash</a> in your application on its <a href="https://blurha.sh/">official page.</a></p>
             
             <h4>Supported Languages</h4>
-            <p>UnSplash is currently testing support for non-English languages on <a href="#">search endpoints.</a> To access the beta, email <a href="mailto:api@unsplash.com">api@unsplash.com</a> with your application ID.</p>
+            <p>UnSplash is currently testing support for non-English languages on search endpoints. To access the beta, email <a>api@unsplash.com</a> with your application ID.</p>
             <br />
         </div>
     )

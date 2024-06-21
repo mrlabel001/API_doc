@@ -1,5 +1,5 @@
 import React from 'react';
-import './RateLimiting.css'; // Import your CSS file
+import './RateLimiting.css'; 
 
 function RateLimiting() {
     return (
@@ -15,13 +15,37 @@ function RateLimiting() {
             <h2 className="section-heading">Info and Pagination</h2>
             <div className="section-content">
                 <p>
-                    All the resources mentioned above will be paginated by default with a limit of 20 per page. 
-                    Also, there are two data values in the payload returned that define the pagination:
+                The API will automatically paginate the responses. You will receive up to 20 documents per page.
+                Each resource contains an info object with information about the response.
                 </p>
-                <ul>
-                    <li><strong>page</strong>: the current page.</li>
-                    <li><strong>per_page</strong>: how many items per page you are given.</li>
-                </ul>
+                <table>
+                    <tr>
+                        <th>Key</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>count</td>
+                        <td>int</td>
+                        <td>The length of the response</td>
+                    </tr>
+                    <tr>
+                        <td>pages</td>
+                        <td>unt</td>
+                        <td>The amount of pages</td>
+                    </tr>
+                    <tr>
+                        <td>next</td>
+                        <td>str</td>
+                        <td>Link to the next page (if it exists)</td>
+                    </tr>
+                    <tr>
+                        <td>prev</td>
+                        <td>str</td>
+                        <td>Link to the previous page (if it exists)</td>
+                    </tr>
+                </table>
+                <p>You can access different pages with the <code>page</code> parameter. If you don't specify any page, the first page will be shown. For example, in order to access page 2, add <code>?page=2</code> to the end of the URL.</p>
             </div>
         </div>
     );

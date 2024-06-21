@@ -1,4 +1,13 @@
 import './Endpoint.css';
+import pic9 from "./assets/get photos.png"
+import pic10 from "./assets/get a photo.png"
+import pic11 from "./assets/get random photo.png"
+import pic12 from "./assets/get photo statistics.png"
+import pic13 from "./assets/get photo download.png"
+import pic14 from "./assets/update photo.png"
+import pic15 from "./assets/like a photo.png"
+import pic16 from "./assets/unlike a photo.png"
+
 function Photos() {
  
     return (
@@ -27,8 +36,7 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-
-            {/* GET photos */}
+            <br />
             <h4>GET photos</h4>
             <code>GET /photos</code><br />
             <strong>Parameters</strong>
@@ -54,10 +62,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-    
-
-            {/* GET a single photo */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic9} ></img>
+            <br />
             <h4>GET a single photo</h4>
             <code>GET /photos/:id</code><br />
             <strong>Parameters</strong>
@@ -75,10 +82,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-
-
-            {/* GET a random photo */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic10} ></img>
+            <br />
             <h4>GET a random photo</h4>
             <code>GET /photos/random</code><br />
             <strong>Parameters</strong>
@@ -104,10 +110,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-           
-
-            {/* GET photo statistics */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic11} ></img>
+            <br />
             <h4>GET photo statistics</h4>
             <code>GET /photos/:id/statistics</code><br />
             <strong>Parameters</strong>
@@ -125,10 +130,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-
-
-            {/* GET a photo's download link */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic12} ></img>
+            <br />
             <h4>GET a photo's download link</h4>
             <code>GET /photos/:id/download</code><br />
             <strong>Parameters</strong>
@@ -146,10 +150,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-            
-
-            {/* Update a photo */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic13} ></img>
+            <br />
             <h4>Update a photo</h4>
             <code>PUT /photos/:id</code><br />
             <strong>Parameters</strong>
@@ -171,8 +174,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-            {/* Like a photo */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic14} ></img>
+            <br />
             <h4>Like a photo</h4>
             <code>POST /photos/:id/like</code><br />
             <strong>Parameters</strong>
@@ -190,9 +194,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-
-            {/* Unlike a photo */}
+            <p><strong>Response</strong></p><br />
+            <img src={pic15} ></img>
+            <br />
             <h4>Unlike a photo</h4>
             <code>DELETE /photos/:id/like</code><br />
             <strong>Parameters</strong>
@@ -210,8 +214,9 @@ function Photos() {
                     </tr>
                 </tbody>
             </table>
-            <p><strong>Response</strong></p>
-    
+            <p><strong>Response</strong></p><br />
+            <img src={pic16} ></img>
+            <br />
         </>
     );
 }
